@@ -9,11 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1 
-      - uses: ammaraskar/sphinx-action@master
-        with:
-          docs-folder: "docs/" 
-    
+      #- uses: actions/checkout@v1 
+      #- uses: ammaraskar/sphinx-action@master
+      #  with:
+      #    docs-folder: "docs/" 
+    #
       # Save HTML page artifact
       - name: "Upload Sphinx Artifact"
         # Specify id for referencing output artifact
@@ -33,4 +33,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deploy-to-pages
         uses: actions/deploy-pages@v4
-        
