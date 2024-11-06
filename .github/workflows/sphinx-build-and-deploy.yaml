@@ -18,7 +18,7 @@ jobs:
       - name: "Upload Sphinx Artifact"
         # Specify id for referencing output artifact
         id: upload_artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           path: docs/_build/html/
       
