@@ -20,11 +20,11 @@ jobs:
           git clone https://github.com/VegraD/sphinx_test.git --branch auto --single-branch auto
           touch .nojekyll
           sphinx-quickstart
-          y
-          test
-          vegrad
-          1
-          en
+          echo y
+          echo test
+          echo vegrad
+          echo 1
+          echo en
           git add .
           git commit -m "Update documentation" -a || true
       - name: Push changes
