@@ -8,7 +8,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Install Sphinx onto runner
+      # Step 1: Install Sphinx onto runner with pip
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
