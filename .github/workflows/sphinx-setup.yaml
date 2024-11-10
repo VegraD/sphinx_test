@@ -20,8 +20,8 @@ jobs:
         if: ${{ hashFiles('docs/conf.py') == '' && hashFiles('docs/index.rst') == '' && hashFiles('docs/Makefile') == '' && hashFiles('docs/make.bat') == ''}}
         run: |
           git clone ${{ github.server_url }}/${{ github.repository }}.git --branch auto --single-branch auto
-          touch .nojekyll
           mkdir docs
+          touch .nojekyll
           cd docs
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
