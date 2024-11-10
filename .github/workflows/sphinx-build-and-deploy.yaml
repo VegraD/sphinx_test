@@ -1,40 +1,4 @@
-name: "Setup Sphinx files"
-on: 
-  push:
-    branches:
-      - auto
 
-jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      # Step 1: Install Sphinx onto runner
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.7
-      - run: pip install -U sphinx
-
-      # Step 2: Check if Sphinx files exist, if not we create defaults
-      - name: Sphinx exist and make
-        if: ${{ hashFiles('docs/conf.py') == '' && hashFiles('docs/index.rst') == '' && hashFiles('docs/Makefile') == '' && hashFiles('docs/make.bat') == ''}}
-        run: |
-          git clone https://github.com/VegraD/sphinx_test.git --branch auto --single-branch auto
-          touch .nojekyll
-          mkdir docs
-          cd docs
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          sphinx-quickstart -q -p test -a vegrad -v 1.0
-          git add .
-          git commit -m "Update documentation" -a || true
-
-      # Step 3: Push changes runner has made to repository
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          branch: auto
-          github_token: ${{ secrets.GITHUB_TOKEN }}
 
 
 #
