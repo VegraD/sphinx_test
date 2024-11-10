@@ -15,6 +15,7 @@ jobs:
           python-version: 3.7
       - run: pip install -U sphinx
   check:
+    needs: dlsphinx
     runs-on: ubuntu-latest
     steps:
     - name: Sphinx exist and make
