@@ -5,33 +5,29 @@ on:
       - auto
 
 jobs:
-  dlsphinx:
+  check:
     runs-on: ubuntu-latest
-    name: Download Sphinx
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
           python-version: 3.7
       - run: pip install -U sphinx
-  check:
-    needs: dlsphinx
-    runs-on: ubuntu-latest
-    steps:
-    - name: Sphinx exist and make
-      if: ${{ hashFiles('docs/conf.py') == '' }}
-      run: |
-        git clone https://github.com/VegraD/sphinx_test.git --branch auto --single-branch auto
-        touch .nojekyll
-        sphinx-quickstart
-        git add .
-        git commit -m "Update documentation" -a || true
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        branch: auto
-        directory: docs/
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sphinx exist and make
+        if: ${{ hashFiles('docs/conf.py') == '' }}
+        run: |
+          git clone https://github.com/VegraD/sphinx_test.git --branch auto --single-branch auto
+          touch .nojekyll
+          sphinx-quickstart
+          git add .
+          git commit -m "Update documentation" -a || true
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: auto
+          directory: docs/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
 
 
