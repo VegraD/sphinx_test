@@ -19,6 +19,8 @@ jobs:
         run: |
           git clone https://github.com/VegraD/sphinx_test.git --branch auto --single-branch auto
           touch .nojekyll
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
           sphinx-quickstart -q -p test -a vegrad -v 1.0
           git add .
           git commit -m "Update documentation" -a || true
