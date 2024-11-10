@@ -22,7 +22,6 @@ jobs:
       if: ${{ hashFiles('docs/conf.py') == '' }}
       run: |
         git clone https://github.com/VegraD/sphinx_test.git --branch auto --single-branch auto
-        cd sphinx_test
         touch .nojekyll
         sphinx-quickstart
         git add .
