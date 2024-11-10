@@ -2,7 +2,7 @@ name: "Quickstart and fill Sphinx"
 on: 
   push:
     branches:
-      - main
+      - auto
 
 jobs:
   check:
