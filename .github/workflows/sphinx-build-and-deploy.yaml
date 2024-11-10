@@ -5,6 +5,15 @@ on:
       - auto
 
 jobs:
+  dlsphinx:
+    runs-on: ubuntu-latest
+    name: Download Sphinx
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - run: pip install -U sphinx
   check:
     runs-on: ubuntu-latest
     steps:
