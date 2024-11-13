@@ -44,6 +44,7 @@ jobs:
         with:
           branch: main
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          
 
       - name: List docs directory in setup
         run: |
@@ -66,7 +67,7 @@ jobs:
         with:
           name: docs-folder
           path: docs
-          
+
       # Step 4. Install dependencies and generate documentation
       - uses: actions/setup-python@v5
       - name: Install dependencies
