@@ -34,7 +34,6 @@ jobs:
           cp -r vortex-ci/docs docs
           cp vortex-ci/.nojekyll .nojekyll
           rm -rf vortex-ci
-          cp -r . /home/runner/work/sphinx_test/
           git clone ${{ github.server_url }}/${{ github.repository }}.git --branch main --single-branch main
           git add .
           git commit -m "Update: Created template files for Sphinx" -a || true
