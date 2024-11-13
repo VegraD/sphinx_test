@@ -27,13 +27,13 @@ jobs:
       - name: Sphinx exist and make
         if: ${{ hashFiles('docs/conf.py') == '' && hashFiles('docs/index.rst') == '' && hashFiles('docs/Makefile') == '' && hashFiles('docs/make.bat') == ''}}
         run: |
-          git clone --depth 1 https://github.com/vortex/vortex-ci.git --branch sphinx/docs_template
-          rm -rf vortex-ci/.git
-          mv -r vortex-ci docs/
-          rm -rf vortex-ci
-          git clone ${{ github.server_url }}/${{ github.repository }}.git --branch main --single-branch main
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
+          git clone --depth 1 https://github.com/vortex/vortex-ci.git --branch sphinx/docs_template
+          rm -rf vortex-ci/.git
+          mv -r vortex-ci/ docs/
+          rm -rf vortex-ci
+          git clone ${{ github.server_url }}/${{ github.repository }}.git --branch main --single-branch main
           git add .
           git commit -m "Update: Created template files for Sphinx" -a || true
 
