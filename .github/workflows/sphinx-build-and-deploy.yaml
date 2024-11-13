@@ -30,7 +30,9 @@ jobs:
           git config --global user.name "GitHub Action"
           git clone --depth 1 https://github.com/vortexntnu/vortex-ci.git --branch sphinx/docs_template
           rm -rf vortex-ci/.git
-          mv vortex-ci/ ../docs/
+          cp -r vortex-ci/docs docs
+          cp vortex-ci/.nojekyll .nojekyll
+          rm -rf vortex-ci
           git clone ${{ github.server_url }}/${{ github.repository }}.git --branch main --single-branch main
           git add .
           git commit -m "Update: Created template files for Sphinx" -a || true
