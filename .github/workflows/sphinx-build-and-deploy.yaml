@@ -3,7 +3,7 @@ name: Deploy Sphinx documentation
 on: [push, pull_request, workflow_dispatch]
 
 permissions:
-  contents: write
+  contents: [write, read]
 
 jobs:
   setup:
@@ -34,10 +34,10 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: main
+          branch: auto
           github_token: ${{ secrets.GITHUB_TOKEN }}
   
-          
+
   build-deploy:
     runs-on: ubuntu-latest
     steps:
