@@ -28,7 +28,10 @@ jobs:
         if: ${{ hashFiles('docs/conf.py') == '' && hashFiles('docs/index.rst') == '' && hashFiles('docs/Makefile') == '' && hashFiles('docs/make.bat') == ''}}
         run: |
           git clone ${{ github.server_url }}/${{ github.repository }}.git --branch main --single-branch main
-          git archive --remote=git@github.com:vortexntnu/vortex-ci.git sphinx/docs_template
+          curl -L -o docs.zip https://github.com/vortex/vortex-ci/archive/refs/heads/sphinx/docs_template.zip
+          unzip docs.zip
+          rm -rf docs.zip
+          
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git add .
