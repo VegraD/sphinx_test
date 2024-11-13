@@ -30,6 +30,7 @@ jobs:
           git add .
           git commit -m "Update: Created files for Sphinx" -a || true
 
+          
       # Step 3: Push changes runner has made to repository
       - name: Push changes
         uses: ad-m/github-push-action@master
