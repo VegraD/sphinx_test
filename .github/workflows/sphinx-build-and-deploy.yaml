@@ -29,9 +29,8 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/vortex/vortex-ci.git --branch sphinx/docs_template
           rm -rf vortex-ci/.git
-          mkdir docs
           mv -r vortex-ci docs/
-          rm -r vortex-ci
+          rm -rf vortex-ci
           git clone ${{ github.server_url }}/${{ github.repository }}.git --branch main --single-branch main
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
