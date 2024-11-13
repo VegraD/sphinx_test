@@ -29,7 +29,7 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git clone --depth 1 https://github.com/vortex/vortex-ci.git --branch sphinx/docs_template
+          git clone --depth 1 https://github.com/vortexntnu/vortex-ci.git --branch sphinx/docs_template
           rm -rf vortex-ci/.git
           mv -r vortex-ci/ docs/
           rm -rf vortex-ci
