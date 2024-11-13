@@ -1,3 +1,0 @@
-[submodule "sphinx/docs_template"]
-	path = sphinx/docs_template
-	url = https://github.com/vortexntnu/vortex-ci.git
