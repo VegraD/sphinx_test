@@ -3,7 +3,7 @@ name: Deploy Sphinx documentation
 on: [push, pull_request, workflow_dispatch]
 
 permissions:
-  contents: [write, read]
+  contents: write
 
 jobs:
   setup:
@@ -30,7 +30,7 @@ jobs:
           git add .
           git commit -m "Update: Created files for Sphinx" -a || true
 
-          
+
       # Step 3: Push changes runner has made to repository
       - name: Push changes
         uses: ad-m/github-push-action@master
