@@ -69,6 +69,7 @@ jobs:
           path: docs
 
       # Step 4. Install dependencies and generate documentation
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
