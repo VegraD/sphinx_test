@@ -61,6 +61,12 @@ jobs:
     needs: setup
     steps:
 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+      - name: Install dependencies
+        run: |
+          pip install sphinx sphinx_rtd_theme myst_parser
+
       - uses: actions/checkout@v1 
       - uses: ammaraskar/sphinx-action@master
         with:
