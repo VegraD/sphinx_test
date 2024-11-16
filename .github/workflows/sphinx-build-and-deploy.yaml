@@ -72,6 +72,7 @@ jobs:
         with:
             docs-folder: "docs/" 
     
+  b
       - uses: ammaraskar/sphinx-action@master
         with:
             build-command: "sphinx-build -b html . _build"
