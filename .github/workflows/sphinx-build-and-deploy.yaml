@@ -32,7 +32,6 @@ jobs:
           git clone --depth 1 https://github.com/vortexntnu/vortex-ci.git --branch sphinx/docs_template
           rm -rf vortex-ci/.git
           cp -r vortex-ci/docs docs
-          cp vortex-ci/.nojekyll .nojekyll
           rm -rf vortex-ci
           git clone ${{ github.server_url }}/${{ github.repository }}.git --branch main --single-branch main
           rm -rf main
