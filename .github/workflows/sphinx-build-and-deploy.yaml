@@ -31,6 +31,7 @@ jobs:
           git config advice.addEmbeddedRepo false
           git clone --depth 1 https://github.com/vortexntnu/vortex-ci.git --branch sphinx/docs_template
           rm -rf vortex-ci/.git
+          rm -rf main
           cp -r vortex-ci/docs docs
           cp vortex-ci/.nojekyll .nojekyll
           rm -rf vortex-ci
@@ -44,6 +45,10 @@ jobs:
         with:
           branch: main
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: directory content check
+        run: |
+          ls -la
 
       - name: Upload docs folder
         uses: actions/upload-artifact@v4
@@ -61,6 +66,11 @@ jobs:
         with:
           name: docs
           path: docs
+
+      - name: directory content check
+        run: |
+          ls -la
+
       # Step 4. Install dependencies and generate documentation
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
