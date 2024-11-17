@@ -88,8 +88,8 @@ jobs:
       - name: build sphinx
         uses: ammaraskar/sphinx-action@master
         with:
-            build-command: "sphinx-build -b html docs _build"
-            docs-folder: "docs"
+            build-command: "sphinx-build -b html . _build"
+            docs-folder: "./docs/"
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
