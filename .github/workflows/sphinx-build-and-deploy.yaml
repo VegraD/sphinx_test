@@ -116,7 +116,7 @@ jobs:
         id: upload
         uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
         with:
-          path: _build
+          path: build_outputs_folder/
 
       - name: Deploy to GitHub Pages
         id: deployment
