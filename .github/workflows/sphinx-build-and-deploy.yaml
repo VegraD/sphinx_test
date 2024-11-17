@@ -77,6 +77,11 @@ jobs:
         run: |
           sphinx-build -b html docs _build
 
+      - name: directory content check
+        run: |
+          ls -la
+          ls -la docs
+
       - name: Upload docs folder
         uses: actions/upload-artifact@v4
         with:
