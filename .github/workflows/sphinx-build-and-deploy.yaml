@@ -75,7 +75,7 @@ jobs:
 
       - name: Sphinx build
         run: |
-          sphinx-build docs _build
+          sphinx-build -b htlm docs _build
 
       - name: Upload docs folder
         uses: actions/upload-artifact@v4
