@@ -67,10 +67,6 @@ jobs:
           name: docs
           path: docs
 
-      - name: directory content check
-        run: |
-          ls -la
-
       # Step 4. Install dependencies and generate documentation
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -82,8 +78,12 @@ jobs:
       - uses: ammaraskar/sphinx-action@master
         with:
             docs-folder: "docs/" 
-    
-      - uses: ammaraskar/sphinx-action@master
+
+      - name: directory content check
+        run: |
+          ls -la
+      - name: build sphinx
+        uses: ammaraskar/sphinx-action@master
         with:
             build-command: "sphinx-build -b html . _build"
             docs-folder: "docs"
