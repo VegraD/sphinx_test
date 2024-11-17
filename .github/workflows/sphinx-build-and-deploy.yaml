@@ -97,7 +97,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build
-          path: docs
+          path: _build
       - name: directory content check
         run: |
           ls -la
