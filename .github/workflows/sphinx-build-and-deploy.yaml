@@ -91,6 +91,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write
+
     steps:
 
       - name: Download _build folder
@@ -98,9 +107,14 @@ jobs:
         with:
           name: build
           path: _build
+
       - name: directory content check
         run: |
           ls -la
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
 #      # Step 4. Install dependencies and generate documentation
 #      #- uses: actions/checkout@v4
@@ -117,13 +131,6 @@ jobs:
 #        with:
 #            build-command: "sphinx-build -b html . _build"
 #            docs-folder: "./docs/"
-
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: _build # The folder the action should deploy.
-
 
 #     - name: Deploy to GitHub Pages
 #       uses: peaceiris/actions-gh-pages@v3
