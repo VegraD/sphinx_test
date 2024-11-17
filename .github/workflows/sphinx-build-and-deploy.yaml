@@ -75,7 +75,7 @@ jobs:
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme myst_parser
+          pip install -U sphinx
 
       - name: directory content check
         run: |
