@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Step 1: Install Sphinx onto runner with pip
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.7
       - run: pip install -U sphinx
@@ -71,13 +71,12 @@ jobs:
           ls -la
 
       # Step 4. Install dependencies and generate documentation
-      - uses: actions/checkout@v4
+      #- uses: actions/checkout@v4
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
           pip install sphinx sphinx_rtd_theme
         
-      - uses: actions/checkout@v4 
       - uses: ammaraskar/sphinx-action@master
         with:
             docs-folder: "docs/" 
