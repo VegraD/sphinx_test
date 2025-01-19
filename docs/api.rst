@@ -2,7 +2,6 @@ API
 ===
 
 .. autosummary::
-   :toctree: _autosummary
-   :recursive:
+   :toctree: generated
 
-   code
+   Code/code
