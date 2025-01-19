@@ -2,6 +2,6 @@ API
 ===
 
 .. autosummary::
-   :toctree: generated
+   :toctree: _autosummary
 
-   my_code
+   Code.my_code
