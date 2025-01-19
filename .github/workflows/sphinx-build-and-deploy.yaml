@@ -56,7 +56,7 @@ jobs:
           path: docs
 
   build-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: setup
 
     environment:
