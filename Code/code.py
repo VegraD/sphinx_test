@@ -7,10 +7,14 @@ Each function and variable is documented for clarity.
 
 def generate_smiley_art():
     """
-    Generates the ASCII art for the smiley face.
+    Return a list of random ingredients as strings.
 
-    Returns:
-        str: The ASCII art of the smiley face as a string.
+    :param kind: Optional "kind" of ingredients.
+    :type kind: list[str] or None
+    :raise lumache.InvalidKindError: If the kind is invalid.
+    :return: The ingredients list.
+    :rtype: list[str]
+
     """
     return (
         "   *****   \n"
