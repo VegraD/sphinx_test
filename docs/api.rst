@@ -4,4 +4,4 @@ API
 .. autosummary::
    :toctree: _autosummary
 
-   my_code
+   Code.my_code

@@ -11,7 +11,7 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath("Code"))
+sys.path.insert(0, os.path.abspath(".."))
 
 project = 'Vortex'
 copyright = '2024, Vortex'
@@ -42,6 +42,6 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # Options for HTML output (theme and static paths)
 html_theme = "sphinx_rtd_theme"  # Change to ReadTheDocs theme
-html_static_path = ["_static"]
+html_static_path = []
 
 # Github actions adds the system path to this file upon creation/running the file
