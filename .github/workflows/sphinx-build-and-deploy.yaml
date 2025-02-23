@@ -13,11 +13,30 @@ permissions:
   contents: write
 
 jobs:
+  check-docs:
+    runs-on: ubuntu-22.04
+    outputs: 
+      docs_exists: ${{ steps.check.outputs.exists }}
+    steps:
 
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Check if directory exists
+      id: check
+      run: |
+        if [ -d "docs" ]; then
+          echo "exists=true" >> $GITHUB_ENV
+          echo "exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "exists=false" >> $GITHUB_ENV
+          echo "exists=false" >> $GITHUB_OUTPUT
+        fi
 
   build-deploy:
+    needs: check-docs
+    if: needs.check-docs.outputs.docs_exists == 'true'
     runs-on: ubuntu-22.04
-    #needs: setup
 
     environment:
       name: github-pages
@@ -28,6 +47,9 @@ jobs:
       id-token: write
 
     steps:
+      - name: Skip if not found
+        
+        run: 
 
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
