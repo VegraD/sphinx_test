@@ -16,38 +16,6 @@ jobs:
   setup:
     runs-on: ubuntu-22.04
     steps:
-      # Step 1: Install Sphinx onto runner with pip
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: 3.7
-      - run: pip install -U sphinx
-      # Step 2: Check if certain needed Sphinx files exist, if not we create defaults
-      - name: Sphinx exist and make
-        if: ${{ hashFiles('docs/conf.py') == '' && hashFiles('docs/index.rst') == '' && hashFiles('docs/Makefile') == '' && hashFiles('docs/make.bat') == ''}}
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git config advice.addEmbeddedRepo false
-          git clone --depth 1 https://github.com/vortexntnu/vortex-ci.git --branch sphinx/docs_template
-          rm -rf vortex-ci/.git
-          cp -r vortex-ci/docs docs
-          rm -rf vortex-ci
-          git clone ${{ github.server_url }}/${{ github.repository }}.git --branch main --single-branch main
-          rm -rf main
-          git add .
-          git commit -m "Update: Created template files for Sphinx" -a || true
-
-      # Step 3: Push changes runner has made to repository
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          branch: main
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: directory content check
-        run: |
-          ls -la
 
       - name: Upload docs folder
         uses: actions/upload-artifact@v4
