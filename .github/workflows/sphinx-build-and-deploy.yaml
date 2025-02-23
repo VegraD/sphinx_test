@@ -47,9 +47,6 @@ jobs:
       id-token: write
 
     steps:
-      - name: Skip if not found
-        
-        run: 
 
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
