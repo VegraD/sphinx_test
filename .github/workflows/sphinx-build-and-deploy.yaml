@@ -35,7 +35,7 @@ jobs:
 
   build-deploy:
     needs: check-docs
-    if: needs.check-docs.outputs.docs_exists == 'true'
+    if: needs.check-docs.outputs.docs_exists == 'false'
     runs-on: ubuntu-22.04
 
     environment:
